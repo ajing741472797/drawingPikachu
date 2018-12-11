@@ -1,5 +1,5 @@
 !function () {
-    var duration = 30
+    var duration = 20
     function writeCode(prefix, code, fn) {
         let container = document.querySelector('#code')
         let styleTag = document.querySelector('#styleTag')
