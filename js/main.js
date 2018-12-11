@@ -106,13 +106,13 @@ let code = `
  * 接下来画皮卡丘的脸蛋
  */
 .face{
+    position: absolute;
+    top: 85px;
     width: 68px;
     height: 68px;
     border: 2px solid black;
     background: #FC0D1C;
     border-radius: 50%;
-    position: absolute;
-    top: 85px;
 }
 
 /* 
@@ -132,12 +132,12 @@ let code = `
  * 然后画上嘴唇
  */
 .upperLip{
+    position: absolute;  
+    top: 60px;
     width: 64px;
     height: 20px;
     border: 2px solid black;
     border-top: none;
-    position: absolute;  
-    top: 60px;
     background: #FEE433;
 }
 .upperLip.left{
@@ -206,13 +206,13 @@ let code = `
         .siblings('.active').removeClass('active')
         switch(speed){
             case 'slow':
-                duration = 100
+                duration = 50
                 break
             case 'normal':
-                duration = 30
+                duration = 20
                 break
             case 'fast':
-                duration = 10
+                duration = 0
                 break
         }
     })
