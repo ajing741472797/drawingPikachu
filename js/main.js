@@ -1,19 +1,22 @@
-!function(){
-function writeCode(prefix, code, fn) {
-    let container = document.querySelector('#code')
-    let styleTag = document.querySelector('#styleTag')
-    let n = 0
-    let id = setInterval(() => {
-        n += 1
-        container.innerHTML = Prism.highlight(prefix + code.substring(0, n), Prism.languages.css);
-        styleTag.innerHTML = code.substring(0, n)
-        container.scrollTop = container.scrollHeight
-        if (n >= code.length) {
-            window.clearInterval(id)
-            fn && fn.call()
-        }
-    }, 30)
-}
+!function () {
+    var duration = 30
+    function writeCode(prefix, code, fn) {
+        let container = document.querySelector('#code')
+        let styleTag = document.querySelector('#styleTag')
+        let n = 0
+        let id
+        id = setTimeout(function run() {
+            n += 1
+            container.innerHTML = Prism.highlight(prefix + code.substring(0, n), Prism.languages.css);
+            styleTag.innerHTML = code.substring(0, n)
+            container.scrollTop = container.scrollHeight
+            if (n < code.length) {
+                id = setTimeout(run, duration)
+            } else {
+                fn && fn.call()
+            }
+        }, duration)
+    }
 let code = `
 /* 
  * 你好，我是阿经
@@ -196,4 +199,21 @@ let code = `
  * 好了，这只皮卡丘送给你，喜欢吗？
  */`
     writeCode('',code)
+    $('.actions').on('click','button',function(e){
+        let $button = $(e.currentTarget)
+        let speed = $button.attr('data-speed')
+        $button.addClass('active')
+        .siblings('.active').removeClass('active')
+        switch(speed){
+            case 'slow':
+                duration = 100
+                break
+            case 'normal':
+                duration = 30
+                break
+            case 'fast':
+                duration = 10
+                break
+        }
+    })
 }.call()
