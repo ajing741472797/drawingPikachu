@@ -91,7 +91,7 @@ let code = `
  */
 .eye.left{
     right: 50%;
-    margin-right: 90px;
+    margin-right: 85px;
 }
 
 /* 
@@ -99,7 +99,7 @@ let code = `
  */
 .eye.right{
     left: 50%;
-    margin-left: 90px;
+    margin-left: 85px;
 }
 
 /* 
@@ -120,12 +120,12 @@ let code = `
  */
 .face.left{
     right: 50%;
-    margin-right: 115px;
+    margin-right: 110px;
 }
 
 .face.right{
     left: 50%;
-    margin-left: 115px;
+    margin-left: 110px;
 }
 
 /* 
